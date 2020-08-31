@@ -3,7 +3,7 @@ from control_parser import Parser
 
 app = Flask(__name__)
 
-file = open("/var/lib/dpkg/status", "r")
+file = open("sample_file", "r")
 file_text = file.read().strip()
 parser = Parser(file_text)
 
