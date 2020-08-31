@@ -1,0 +1,9 @@
+<!doctype html>
+<title>top page</title>
+{% if package_list %}
+    {% for package in package_list %}
+    <li><a href="/{{package['name']}}">{{ package['name'] }}</a></li>
+    {% endfor %}
+{% else %}
+  <h1>something went wrong :D</h1>
+{% endif %}

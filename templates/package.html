@@ -1,0 +1,28 @@
+<!doctype html>
+<title>A package</title>
+{% if package %}
+  <h1>Name: {{ package['name'] }}</h1>
+  <h1>Dependencies</h1>
+  {% if package['details']['depends']%}
+    {% for pkg in package['details']['depends'] %}
+    <li><a href="/{{pkg}}">{{ pkg }}</a></li>
+    {% endfor %}
+  {% else %}
+  <a>No dependencies</a>
+  {% endif %}
+
+  <h1>Reverse dependencies</h1>
+  {% if package['details']['reverse_depends'] %}
+    {% for pkg in package['details']['reverse_depends'] %}
+    <li><a href="/{{pkg}}">{{ pkg }}</a></li>
+    {% endfor %}
+  {% else %}
+    <a>No reverse dependencies</a>
+  {% endif %}
+
+  <h1>Description</h1>
+  {{package['details']['description']}}
+
+{% else %}
+  <h1>something went wrong :D</h1>
+{% endif %}
